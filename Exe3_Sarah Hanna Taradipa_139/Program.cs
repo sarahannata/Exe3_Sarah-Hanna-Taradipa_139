@@ -4,12 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exe3_Sarah_Hanna_Taradipa_139
+namespace Exercise_Linked_list_A
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-        }
-    }
+
 }
