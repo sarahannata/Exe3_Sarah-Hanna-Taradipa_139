@@ -89,7 +89,7 @@ namespace Exercise_Linked_list_A
                     {
                         case '1':
                             {
-
+                                obj.traverse();
                             }
                             break;
                     }
