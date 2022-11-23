@@ -113,6 +113,12 @@ namespace Exercise_Linked_list_A
                                 }
                             }
                             break ;
+                        case '3':
+                            {
+                                obj.firstNode();
+                            }
+                            break;
+
                     }
                 }
                 catch (Exception e)
