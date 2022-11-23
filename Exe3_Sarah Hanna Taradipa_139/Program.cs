@@ -148,9 +148,10 @@ namespace Exercise_Linked_list_A
                     Console.WriteLine("\nMenu");
                     Console.WriteLine("1. Add record to the list");
                     Console.WriteLine("2. View all the records in the list");
-                    Console.WriteLine("3. Search for a record in the list");
-                    Console.WriteLine("4. Display the first record in the list");
-                    Console.WriteLine("5. Exit");
+                    Console.WriteLine("3. Delete a record");
+                    Console.WriteLine("4. Search for a record in the list");
+                    Console.WriteLine("5. Display the first record in the list");
+                    Console.WriteLine("6. Exit");
                     Console.Write("\nEnter your choice (1-5): ");
                     char ch = Convert.ToChar(Console.ReadLine());
                     switch (ch)
@@ -166,6 +167,20 @@ namespace Exercise_Linked_list_A
                             }
                             break;
                         case '3':
+                            {
+                                if (obj.listEmpty())
+                                {
+                                    Console.WriteLine("\nList is empty");
+                                    break;
+                                }
+                                Console.Write("\nEnter the roll number of the student" + " whose record is to be deleted: ");
+                                int rollNo = Convert.ToInt32((Console.ReadLine()));
+                                Console.WriteLine();
+                                if (obj.delNode(rollNo) == false)
+                                    Console.WriteLine("Record with roll number" + rollNo + "deleted \n");
+                            }
+                            break;
+                        case '4':
                             {
                                 if (obj.listEmpty() == true)
                                 {
@@ -186,12 +201,12 @@ namespace Exercise_Linked_list_A
                                 }
                             }
                             break ;
-                        case '4':
+                        case '5':
                             {
                                 obj.firstNode();
                             }
                             break;
-                        case '5':
+                        case '6':
                             return;
                         default:
                             {
