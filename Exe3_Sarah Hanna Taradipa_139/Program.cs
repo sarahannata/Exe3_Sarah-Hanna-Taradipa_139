@@ -12,6 +12,7 @@ namespace Exercise_Linked_list_A
         public int rollNumber;
         public string name;
         public Node next;
+        public Node prev;
     }
     class CircularList
     {
@@ -21,6 +22,53 @@ namespace Exercise_Linked_list_A
             LAST = null;
         }
 
+        public void addNode()
+        {
+            int rollNo;
+            string nm;
+            Console.Write("\nEnter the roll number of the student: ");
+            rollNo = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\nEnter the name of the student: ");
+            nm = Console.ReadLine();
+            Node newnode = new Node();
+            newnode.rollNumber = rollNo;
+            newnode.name = nm;
+            /*Checks if the list is empty*/
+            if ((LAST == null || rollNo == LAST.rollNumber))
+            {
+                if((LAST != null) && (rollNo == LAST.rollNumber))
+                {
+                    Console.WriteLine("\nDuplicate roll numbers not allowed");
+                    return;
+                }
+                newnode.next = LAST;
+                if (LAST != null)
+                    LAST.prev = newnode;
+                newnode.prev = null;
+                LAST = newnode;
+                return;
+            }
+            Node previous, current;
+            for (current = previous = LAST; current != null && rollNo >= current.rollNumber; previous = current, current = current.next)
+            {
+                if (rollNo == current.rollNumber)
+                {
+                    Console.WriteLine("\n Duplicate roll number not allowed");
+                    return;
+                }
+            }
+            newnode.next = current;
+            newnode.prev = previous;
+
+            if (current == null)
+            {
+                newnode.next = null;
+                previous.next = newnode;
+                return;
+            }
+            current.prev = newnode;
+            previous.next = newnode;
+        }
         public bool Search(int rollNo, ref Node previous, ref Node current)
             /*Searches for the specified node*/
         {
