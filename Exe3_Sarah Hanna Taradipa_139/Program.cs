@@ -85,6 +85,23 @@ namespace Exercise_Linked_list_A
             else
                 return (false);/*return false if the node is not found*/
         }
+        public bool delNode(int rollNo)
+        {
+            Node previous, current;
+            previous = current = null;
+            if (Search(rollNo, ref previous, ref current) == false)
+                return false;
+            if(current == LAST)
+            {
+                LAST = LAST.next;
+                if (LAST != null)
+                    LAST.prev = null;
+                return true;
+            }
+            previous.next = current.next;
+            current.next.prev = previous;
+            return true;
+        }
         /*Check if the node empty*/
         public bool listEmpty()
         {
@@ -129,7 +146,8 @@ namespace Exercise_Linked_list_A
                 try
                 {
                     Console.WriteLine("\nMenu");
-                    Console.WriteLine("1. View all the records in the list");
+                    Console.WriteLine("1. Add record to the list");
+                    Console.WriteLine("2. View all the records in the list");
                     Console.WriteLine("2. Search for a record in the list");
                     Console.WriteLine("3. Display the first record in the list");
                     Console.WriteLine("4. Exit");
@@ -139,10 +157,15 @@ namespace Exercise_Linked_list_A
                     {
                         case '1':
                             {
-                                obj.traverse();
+                                obj.addNode();
                             }
                             break;
                         case '2':
+                            {
+                                obj.traverse();
+                            }
+                            break;
+                        case '3':
                             {
                                 if (obj.listEmpty() == true)
                                 {
@@ -163,12 +186,12 @@ namespace Exercise_Linked_list_A
                                 }
                             }
                             break ;
-                        case '3':
+                        case '4':
                             {
                                 obj.firstNode();
                             }
                             break;
-                        case '4':
+                        case '5':
                             return;
                         default:
                             {
