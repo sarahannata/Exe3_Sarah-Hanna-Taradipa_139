@@ -9,7 +9,7 @@ namespace Exercise_Linked_list_A
     class Node
     {
         /*creates Nodes for the circular nexted list*/
-        public int rollnumber;
+        public int rollNumber;
         public string name;
         public Node next;
     }
@@ -20,5 +20,23 @@ namespace Exercise_Linked_list_A
         {
             LAST = null;
         }
+
+        public bool Search(int rollNo, ref Node previous, ref Node current)
+            /*Searches for the specified node*/
+        {
+            for(previous = current = LAST.next;
+                current != LAST;
+                previous = current,
+                current = current.next)
+            {
+                if (rollNo == current.rollNumber)
+                    return (true); /*return true if the node is found*/
+            }
+            if (rollNo == LAST.rollNumber)/*If the node is present at the end*/
+                return true;
+            else
+                return (false);/*return false if the node is not found*/
+        }
+
     }
 }
