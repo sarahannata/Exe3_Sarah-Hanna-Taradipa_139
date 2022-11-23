@@ -118,7 +118,9 @@ namespace Exercise_Linked_list_A
                                 obj.firstNode();
                             }
                             break;
-
+                        case '4':
+                            return;
+                        
                     }
                 }
                 catch (Exception e)
