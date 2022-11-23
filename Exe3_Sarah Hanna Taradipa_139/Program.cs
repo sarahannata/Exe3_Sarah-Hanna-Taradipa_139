@@ -120,7 +120,11 @@ namespace Exercise_Linked_list_A
                             break;
                         case '4':
                             return;
-                        
+                        default:
+                            {
+                                Console.WriteLine("Invalid option");
+                                break;
+                            }
                     }
                 }
                 catch (Exception e)
